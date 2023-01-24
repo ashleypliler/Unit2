@@ -1,18 +1,24 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
+const MovieScreen = ({movieList, page, setPage, addMovie, removeMovie, list}) => {
+  const increment = () => {
+    return setPage(page + 1);
+  };
+  const decrement = () => {
+    return setPage(page - 1);
+  };
 
-const MovieScreen = ({ movieList, page, setPage, addMovie, removeMovie, list }) => {
-    const increment = () => {
-        return setPage(page + 1);
-    }
-    const decrement = () => {
-        return setPage(page - 1);
-    }
-    
-    const movieDisplay = movieList.map((movie, index) => {
-      return <MovieCard movie={movie} addMovie={addMovie} removeMovie={removeMovie} list={list} />;
-    });
+  const movieDisplay = movieList.map((movie) => {
+    return (
+      <MovieCard
+        movie={movie}
+        addMovie={addMovie}
+        removeMovie={removeMovie}
+        list={list}
+      />
+    );
+  });
 
   return (
     <div className="page">
